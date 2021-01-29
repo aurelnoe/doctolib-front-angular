@@ -1,0 +1,7 @@
+<div class="container m-auto">
+  <h2 class="my-4 text-center">Liste des praticiens</h2>
+  <div class="row p-0 d-flex justify-content-around">
+      <app-praticien *ngFor="let praticien of listePraticiens" [lePraticien]="praticien">
+      </app-praticien>
+  </div>
+</div>

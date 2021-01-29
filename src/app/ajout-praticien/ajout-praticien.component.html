@@ -1,0 +1,47 @@
+<div class="container w-50 m-auto">
+  <h1 class="text-center">Inscription Praticien</h1>
+  <div class="col-12 my-4">
+    <form (ngSubmit)="addPraticien(subscriptionForm)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
+      Nom : <input type="text" name="nom"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.nom"
+                  required #monNom="ngModel">
+      <p class="help-block texte-rouge" *ngIf="monNom.invalid && monNom.touched">Le nom doit être saisis !</p>
+      <hr class="hrLightBlue">
+      Prénom: <input type="text" name="prenom"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.prenom"
+                  required #monPrenom>
+            {{ lePraticienSelectionnee.prenom }}
+      <p class="help-block texte-rouge" *ngIf="monPrenom.invalid && monPrenom.touched">Le prénom doit être saisis !</p>
+      <hr class="hrLightBlue">
+      Adresse mail: <input type="email" name="email"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.email"
+                  required #monEmail>
+            {{ lePraticienSelectionnee.email }}
+      <p class="help-block texte-rouge" *ngIf="monEmail.invalid && monEmail.touched">L'adresse mail doit être saisis !</p>
+      <hr class="hrLightBlue">
+      Téléphone: <input type="number" name="telephone"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.telephone"
+                  required #monTelephone>
+            {{ lePraticienSelectionnee.telephone }}
+      <p class="help-block texte-rouge" *ngIf="monTelephone.invalid && monTelephone.touched">Le numéro de téléphone doit être saisis !</p>
+      <hr class="hrLightBlue">
+      Spécialité: <input type="text" name="specialite"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.specialite"
+                  required #maSpecialite>
+            {{ lePraticienSelectionnee.specialite }}
+      <p class="help-block texte-rouge" *ngIf="maSpecialite.invalid && maSpecialite.touched">Le prénom doit être saisis !</p>
+      <hr class="hrLightBlue">
+      IdCabinet: <input type="number" name="adresse"
+                  class="form-control" [(ngModel)]="lePraticienSelectionnee.adresse"
+                  required #monAdresse>
+            {{ lePraticienSelectionnee.adresse }}
+      <p class="help-block texte-rouge" *ngIf="monAdresse.invalid && monAdresse.touched">L'adresse du cabinet doit être saisis !</p>
+      <!-- <select class="form-control" name="adresse" >
+        <option value="cabinet.id" *ngFor="let cabinet of listeCabinets" [listeCabinets]="cabinet">{{ cabinet.denomination }}</option>
+      </select> -->
+      <div class="text-center my-5">
+        <input type="submit" [disabled]="subscriptionForm.invalid" value="Valider" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</div>

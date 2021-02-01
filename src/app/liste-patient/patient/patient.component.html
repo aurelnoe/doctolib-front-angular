@@ -1,0 +1,21 @@
+<div class="col-12 pb-4">
+  <div class="card my-2">
+    <div class="card-header">
+      <h2>{{ lePatient.nom }} {{ lePatient.prenom }}</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-8">
+          <p>Adresse email : {{ lePatient.email }}</p>
+          <p>Numéro de téléphone: 0{{ lePatient.telephone }}</p>
+          <p>conventionné secteur 1</p>
+        </div>
+        <div class="col-4">
+          <a href="" [routerLink]="['/detail-patient/',lePatient.id]" class="btn btn-primary">
+            Voir le patient
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

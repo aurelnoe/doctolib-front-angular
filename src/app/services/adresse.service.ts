@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable  } from '@angular/core';
-import { Adresse } from '../adresse/adresse.modele';
+import { Adresse } from '../liste-adresse/adresse/adresse.modele';
 
 @Injectable({providedIn: 'root'})
 

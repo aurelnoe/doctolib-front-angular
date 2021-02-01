@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="text-center my-4">Détail du patient</h1>
+  <div class="borderLightBlue backGroundWhite p-4 my-2">
+    <h3 class="mb-2">Présentation</h3>
+    <hr class="hrLightBlue">
+    <p>{{ patient.prenom }} {{ patient.nom }}</p>
+    <p>{{ patient.email }}</p>
+    <p>{{ patient.dateNaissance | date }}</p>
+    <p>0{{ patient.telephone }}</p>
+    <a href="#" class="btn btn-primary">Prendre rendez vous</a>
+  </div>
+</div>

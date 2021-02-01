@@ -18,8 +18,7 @@ export class ListePraticienComponent implements OnInit {
     this.praticienService.getPraticiensHttp().subscribe((response) => {
       this.listePraticiens = response;
     }, (error) => {
-      console.log(error);
+      console.log("Erreur de chargement :" + error);
     });
   }
-  //praticiens = this.praticienService.getPraticiens();
 }

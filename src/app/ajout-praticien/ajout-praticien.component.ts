@@ -1,4 +1,4 @@
-import { Adresse } from '../adresse/adresse.modele';
+import { Adresse } from '../liste-adresse/adresse/adresse.modele';
 import { AdresseService } from 'src/app/services/adresse.service';
 import { Praticien } from './../liste-praticien/praticien/praticien.modele';
 import { PraticienService } from './../services/praticien.service';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AjoutPraticienComponent implements OnInit {
 
-  lePraticienSelectionnee: Praticien;//[] = []
+  // lePraticienSelectionnee: Praticien;//[] = []
   praticien: Praticien;
   listeCabinets = [];
 
@@ -28,6 +28,7 @@ export class AjoutPraticienComponent implements OnInit {
   }
 
   addPraticien(form: NgForm) {
+    console.log(form);
     this.praticienService.addPraticienHttp(form.value)
       .subscribe((response) => {
       this.router.navigate(['./liste-praticien']);

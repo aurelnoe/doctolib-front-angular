@@ -9,32 +9,34 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./detail-praticien.component.scss']
 })
 export class DetailPraticienComponent implements OnInit {
+  
   id: number;
-  //praticien;//: Object
-  @Input() praticien;
+  praticien: Praticien;
 
   constructor(private activatedRoute: ActivatedRoute,private praticienService: PraticienService)
   {
-    this.activatedRoute.params
-    .subscribe( params => this.id = params.id)
+    // this.activatedRoute.params
+    // .subscribe( params => this.id = +params['id'])
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     // const id = this.activatedRoute.snapshot.params['id'];
     // this.praticien = {id: id}
-    this.getDetailPraticien(this.id);
-    // this.activatedRoute.params.subscribe((params: Params) => {
-    //   this.praticien = this.praticienService.getDetailPraticien(+params['id']);
-    // })
+    //this.getDetailPraticien(this.id);
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.getDetailPraticien(+params['id']);
+    })
     console.log(this.praticien);
   }
 
-  getDetailPraticien(id){
+  getDetailPraticien(id: number){
     this.praticienService.getDetailPraticien(id)
-    .subscribe(data => {
-     this.praticien = data[0];
+    .subscribe((response: Praticien) => {
+     this.praticien = response;
      console.log(typeof(this.praticien));
+     console.log(response);
     });
+    return this.praticien;
   }
 
 }

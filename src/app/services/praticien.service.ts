@@ -1,3 +1,4 @@
+import { Adresse } from './../liste-adresse/adresse/adresse.modele';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable  } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -14,18 +15,30 @@ export class PraticienService{
     return this.http.get<Praticien[]>("http://localhost:8000/praticiens",{observe: 'body'})
   }
 
-  getDetailPraticien(id: number): Observable<Praticien[]> {
-    return this.http.get<Praticien[]>("http://localhost:8000/praticiens/"+id)//,{observe: 'body'}
-    // for (const praticien of this.praticiens) {
-    //   if(id === praticien.id){
-    //     return praticien;
-    //   }
-    // }
+  getDetailPraticien(id: number): Observable<Praticien> {
+    return this.http.get<Praticien>("http://localhost:8000/praticiens/"+id)
   }
 
   addPraticienHttp(praticien: Praticien){
     let url = "http://localhost:8000/praticiens";
+    praticien.dateInscription = '2020-12-01'; //Date.now();
+
+    const adresse = +praticien.adresse;
+    praticien.adresse =
+    {
+      id: adresse,
+      denomination: null,
+      libelleVoie: null,
+      ville: null,
+      pays: null,
+      codePostal: null,
+    }
     return this.http.post<Praticien[]>(url,praticien,{observe: 'response'})
+  }
+
+  editPraticien(id: number, praticien: Praticien){
+    let url = "http://localhost:8000/praticiens/"+id;
+    return this.http.put<Praticien>(url,praticien,{observe: 'response'})
   }
 
   selectPraticien = new EventEmitter<number>();
@@ -35,7 +48,7 @@ export class PraticienService{
 
   //   praticiens: Praticien[] = [
   //   {
-    //     id: 1,
+  //     id: 1,
   //     nom: "Dupond",
   //     prenom: "Patrick",
   //     email: "docdupond@mail.com",

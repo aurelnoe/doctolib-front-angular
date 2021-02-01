@@ -1,0 +1,17 @@
+<div class="col-12 pb-4">
+  <div class="card my-2">
+    <div class="card-header">
+      <h2>Praticien : Dr {{ leRendezVous.praticien.nom }} {{ leRendezVous.praticien.prenom }}</h2>
+      <h3>Patient : {{ leRendezVous.patient.nom }} {{ leRendezVous.patient.prenom }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-8">
+          <h3>Date : {{ leRendezVous.dateHeure | date }}</h3>
+          <h3>Heure : {{ leRendezVous.dateHeure | date:'shortTime' }}</h3>
+          <h3>Besoin : {{ leRendezVous.praticien.specialite }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

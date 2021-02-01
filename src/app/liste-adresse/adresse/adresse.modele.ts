@@ -4,5 +4,6 @@ export interface Adresse
   denomination: string,
   libelleVoie: string,
   ville: string,
+  codePostal: string,
   pays: string,
 }

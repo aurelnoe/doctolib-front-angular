@@ -1,9 +1,7 @@
 <div class="container w-50 m-auto">
-  <h1 class="text-center">Inscription Praticien</h1>
+  <h1 class="text-center">Inscription Patient</h1>
   <div class="col-12 my-4">
-    <form (ngSubmit)="addPraticien(subscriptionForm.value)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
-
-      <input type="hidden" name="dateInscription" value="2021-01-29">
+    <form (ngSubmit)="addPatient(subscriptionForm)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
 
       Nom : <input type="text" id="nom" name="nom"
                   class="form-control" ngModel
@@ -25,30 +23,15 @@
                   required #monTelephone>
       <p class="help-block texte-rouge" *ngIf="monTelephone.invalid && monTelephone.touched">Le numéro de téléphone doit être saisis !</p>
       <hr class="hrLightBlue">
-      Spécialité: <input type="text" name="specialite"
+      Date de naissance: <input type="date" name="dateNaissance"
                   class="form-control" ngModel
-                  required #maSpecialite>
-      <p class="help-block texte-rouge" *ngIf="maSpecialite.invalid && maSpecialite.touched">Le prénom doit être saisis !</p>
+                  required #maDateNaissance>
+      <p class="help-block texte-rouge" *ngIf="maDateNaissance.invalid && maDateNaissance.touched">Le prénom doit être saisis !</p>
       <hr class="hrLightBlue">
       Mot de passe: <input type="password" name="password"
                   class="form-control" ngModel
                   required #monMdp>
       <p class="help-block texte-rouge" *ngIf="monMdp.invalid && monMdp.touched">Le mot de passe doit être saisis !</p>
-      <hr class="hrLightBlue">
-      <!-- IdCabinet: <input type="number" name="adresse"
-                  class="form-control" ngModel
-                  required #monAdresse>
-      <p class="help-block texte-rouge" *ngIf="monAdresse.invalid && monAdresse.touched">L'adresse du cabinet doit être saisis !</p> -->
-      <div formArrayName="listeCabinets">
-        <h2>Nom du cabinet :</h2>
-          <select class="form-control"
-                  name="adresse"
-                  id="adresse" ngModel>
-            <option value=i *ngFor="let cabinet of listeCabinets, index as i"  >
-              {{ cabinet.denomination }}
-            </option>
-          </select>
-      </div>
 
       <div class="text-center my-5">
         <input type="submit" [disabled]="subscriptionForm.invalid" value="Valider" class="btn btn-primary">

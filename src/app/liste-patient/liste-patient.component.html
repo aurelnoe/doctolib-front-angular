@@ -1,0 +1,7 @@
+<div class="container m-auto">
+  <h2 class="my-4 text-center">Liste des patients</h2>
+  <div class="row p-0 d-flex justify-content-around">
+      <app-patient *ngFor="let patient of listePatients" [lePatient]="patient">
+      </app-patient>
+  </div>
+</div>

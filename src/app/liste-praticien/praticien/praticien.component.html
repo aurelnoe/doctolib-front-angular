@@ -7,13 +7,13 @@
     <div class="card-body">
       <div class="row">
         <div class="col-8">
-          <h3>Dénomination cabinet</h3>
-          <p>Adresse cabinet</p>
-          <p>Ville</p>
+          <h3>{{ lePraticien.adresse.denomination }}</h3>
+          <p>{{ lePraticien.adresse.libelleVoie }}</p>
+          <p>{{ lePraticien.adresse.ville }}</p>
           <p>conventionné secteur 1</p>
         </div>
         <div class="col-4">
-          <a href="" [routerLink]="['/detail-praticien/lePraticien.id']" class="btn btn-primary">
+          <a href="" [routerLink]="['/detail-praticien/',lePraticien.id]" class="btn btn-primary">
             Voir le praticien
           </a>
         </div>

@@ -5,13 +5,24 @@
       <div class="borderLightBlue backGroundWhite p-4 my-2">
         <h3 class="mb-2">Présentation</h3>
         <hr class="hrLightBlue">
-        <p>Docteur {{ praticien.prenom }} Dupond</p>
-        <p>Médecin généraliste</p>
-        <p>0607080910</p>
-        <a href="#" class="btn btn-primary">Prendre rendez vous</a>
+        <p>Docteur {{ praticien.nom }} {{ praticien.prenom }}</p>
+        <p>{{ praticien.specialite }}</p>
+        <p>0{{ praticien.telephone }}</p>
+        <div class="row d-flex justify-content-around">
+          <div class="col-4">
+            <a href="" [routerLink]="['/modif-praticien/',praticien.id]" class="btn btn-primary w-100">
+              Modifier
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="" class="btn btn-primary w-100">
+              Prendre rendez vous
+            </a>
+          </div>
+        </div>
       </div>
       <div class="borderLightBlue backGroundWhite p-4 my-4">
-        <h3 class="mb-2">Tarif et remboursement :</h3>
+        <h3 class="mb-2">Tarifs et remboursements :</h3>
         <hr class="hrLightBlue">
         <p>Conventionné secteur 1</p>
         <p>Carte vitale acceptée</p>
@@ -20,9 +31,10 @@
       <div class="borderLightBlue backGroundWhite p-4 my-4">
         <h3 class="mb-2">Informations cabinet médical</h3>
         <hr class="hrLightBlue">
-        <p>Dénomination</p>
-        <p>num, libellé de la voie</p>
-        <p>Ville</p>
+        <h4>{{ praticien.adresse.denomination }}</h4>
+        <p>{{ praticien.adresse.libelleVoie }}</p>
+        <p>{{ praticien.adresse.codePostal }}, {{ praticien.adresse.ville }}</p>
+        <p>{{ praticien.adresse.pays }}</p>
       </div>
       <div class="borderLightBlue backGroundWhite p-4 my-2">
         <h3 class="mb-2">Informations pratiques</h3>

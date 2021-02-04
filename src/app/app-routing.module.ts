@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: AccueilComponent},
+  {path: '', pathMatch: 'full', redirectTo: '/login'},
   {path: 'liste-praticien', component: ListePraticienComponent},
   {path: 'liste-adresse', component: ListeAdresseComponent},
   {path: 'liste-patient', component: ListePatientComponent},
@@ -21,7 +21,19 @@ const routes: Routes = [
   {path: 'detail-patient/:id', component: DetailPatientComponent},
   {path: 'ajout-praticien', component: AjoutPraticienComponent},
   {path: 'ajout-patient', component: AjoutPatientComponent},
-  {path: 'modif-praticien/:id', component: ModifPraticienComponent}
+  {path: 'modif-praticien/:id', component: ModifPraticienComponent},
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  //   canActivate: [AuthGuard]
+  // },
+  // {
+  //   path: 'secret-random-number',
+  //   loadChildren: './random/random.module#RandomModule',
+  //   canActivate: [RandomGuard],
+  //   canLoad: [RandomGuard],
+  // },
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

@@ -6,19 +6,20 @@
         <h3 class="mb-2">Présentation</h3>
         <hr class="hrLightBlue">
         <p>Docteur {{ praticien.nom }} {{ praticien.prenom }}</p>
-        <p>{{ praticien.specialite }}</p>
-        <p>0{{ praticien.telephone }}</p>
+        <p>Spécialité : {{ praticien.specialite }}</p>
+        <p>Tel : 0{{ praticien.telephone }}</p>
+        <p>Adresse mail : {{ praticien.email }}</p>
         <div class="row d-flex justify-content-around">
           <div class="col-4">
             <a href="" [routerLink]="['/modif-praticien/',praticien.id]" class="btn btn-primary w-100">
               Modifier
             </a>
           </div>
-          <div class="col-4">
+          <!-- <div class="col-4">
             <a href="" class="btn btn-primary w-100">
               Prendre rendez vous
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="borderLightBlue backGroundWhite p-4 my-4">
@@ -44,9 +45,11 @@
         <p>Parking payant</p>
       </div>
     </div>
-    <div class="col-12 col-md-4 w-100">
-      <h2 class="text-center">Disponibilités</h2>
-      <div class="borderLightBlue backGroundWhite"></div>
+    <div class="col-12 col-md-5 w-100">
+      <h2 class="text-center">Prendre Rendez Vous</h2>
+      <div class="borderLightBlue backGroundWhite">
+        <app-ajout-rendez-vous></app-ajout-rendez-vous>
+      </div>
     </div>
   </div>
 </div>

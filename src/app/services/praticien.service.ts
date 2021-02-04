@@ -1,3 +1,4 @@
+import { baseUrl } from './../../environments/environment';
 import { Adresse } from './../liste-adresse/adresse/adresse.modele';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable  } from '@angular/core';
@@ -11,16 +12,16 @@ export class PraticienService{
 
   constructor(private http: HttpClient){}
 
-  getPraticiensHttp(): Observable<Praticien[]> {
-    return this.http.get<Praticien[]>("http://localhost:8000/praticiens",{observe: 'body'})
+  getPraticiensHttp(): Observable<Praticien> {
+    return this.http.get<Praticien>(`${baseUrl}praticiens`,{observe: 'body'})
   }
 
   getDetailPraticien(id: number): Observable<Praticien> {
-    return this.http.get<Praticien>("http://localhost:8000/praticiens/"+id)
+    return this.http.get<Praticien>(`${baseUrl}praticiens/`+id)
   }
 
   addPraticienHttp(praticien: Praticien){
-    let url = "http://localhost:8000/praticiens";
+    let url = `${baseUrl}praticiens`;
     praticien.dateInscription = '2020-12-01'; //Date.now();
 
     const adresse = +praticien.adresse;
@@ -37,7 +38,7 @@ export class PraticienService{
   }
 
   editPraticien(id: number, praticien: Praticien){
-    let url = "http://localhost:8000/praticiens/"+id;
+    let url = `${baseUrl}praticiens/`+id;
     return this.http.put<Praticien>(url,praticien,{observe: 'response'})
   }
 

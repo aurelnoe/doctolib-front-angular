@@ -3,7 +3,9 @@ import { Praticien } from './../../liste-praticien/praticien/praticien.modele';
 export interface RendezVous
 {
   id: number,
-  dateHeure: string,
+  dateDebut: string,
+  dateFin: string,
+  motif: string,
   praticien: Praticien,
   patient: Patient,
 }

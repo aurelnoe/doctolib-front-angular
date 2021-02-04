@@ -15,5 +15,4 @@ export class PraticienComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

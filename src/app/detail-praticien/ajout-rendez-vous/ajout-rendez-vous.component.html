@@ -1,0 +1,57 @@
+
+<div class="container w-100 m-auto">
+  <div class="col-12 my-4">
+    <form (ngSubmit)="addRendezVous(subscriptionForm.value)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <h4>Praticien:</h4>
+        </div>
+        <div class="col-12 col-md-8 mt-2">
+          <p>Dr {{ praticien.nom }} {{ praticien.prenom }}</p>
+          <p>{{ praticien.email }}</p>
+          <p>0{{ praticien.telephone }}</p>
+        </div>
+      </div>
+      <input type="hidden" name="praticien" value="{{ praticien.id }}" ngModel>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <h4>Adresse:</h4>
+        </div>
+        <div class="col-12 col-md-8 mt-2">
+          <p>{{ praticien.adresse.libelleVoie }}</p>
+          <p>{{ praticien.adresse.codePostal }}, {{ praticien.adresse.ville }}</p>
+        </div>
+      </div>
+      <input type="hidden" name="praticien" value="{{ praticien.id }}" ngModel>
+
+      <div class="my-3">
+        <h4>Motif de la consultation :</h4>
+        <select class="form-control" name="motif" id="motif" ngModel>
+          <option value="" selected>Choisissez...</option>
+          <option value="Consultation générale">Consultation générale</option>
+          <option value="Consultation pédiatrie">Consultation pédiatrie</option>
+          <option value="Vaccin">Vaccin</option>
+          <option value="Urgence">Urgence</option>
+        </select>
+      </div>
+
+      <!-- <div formArrayName="listePraticiens">
+        <h2>Nom du praticien :</h2>
+          <select class="form-control"
+                  name="adresse"
+                  id="adresse" ngModel>
+            <option value=i *ngFor="let praticien of listePraticiens, index as i"  >
+              {{ praticien.nom }}
+            </option>
+          </select>
+      </div> -->
+      <app-schedule></app-schedule>
+
+      <div class="text-center my-5">
+        <input type="submit" [disabled]="subscriptionForm.invalid" value="Valider" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
+</div>

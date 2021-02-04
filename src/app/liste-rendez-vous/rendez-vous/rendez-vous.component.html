@@ -7,9 +7,10 @@
     <div class="card-body">
       <div class="row">
         <div class="col-8">
-          <h3>Date : {{ leRendezVous.dateHeure | date }}</h3>
-          <h3>Heure : {{ leRendezVous.dateHeure | date:'shortTime' }}</h3>
+          <h3>Date : {{ leRendezVous.dateDebut | date }}</h3>
+          <h3>Heure : {{ leRendezVous.dateDebut | date:'shortTime' }}</h3>
           <h3>Besoin : {{ leRendezVous.praticien.specialite }}</h3>
+          <h3>Motif de la consultation : {{ leRendezVous.motif }}</h3>
         </div>
       </div>
     </div>

@@ -1,7 +1,9 @@
 <div class="container w-50 m-auto">
-  <h1 class="text-center">Inscription Patient</h1>
   <div class="col-12 my-4">
     <form (ngSubmit)="addPatient(subscriptionForm)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
+      <h1 class="text-center my-5">Inscription Patient</h1>
+
+      <input type="hidden" name="role" value="patient">
 
       Nom : <input type="text" id="nom" name="nom"
                   class="form-control" ngModel

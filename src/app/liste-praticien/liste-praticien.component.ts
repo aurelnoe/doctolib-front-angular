@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Praticien } from './praticien/praticien.modele';
 import { PraticienService } from './../services/praticien.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ export class ListePraticienComponent implements OnInit {
   ngOnInit(): void {
     this.praticienService.getPraticiensHttp().subscribe((response) => {
       this.listePraticiens = response;
+      console.log(response)
     }, (error) => {
       console.log("Erreur de chargement :" + error);
     });

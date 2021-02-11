@@ -1,5 +1,5 @@
-import { Patient } from './../liste-patient/patient/patient.modele';
-import { PatientService } from './../services/patient.service';
+import { Patient } from '../../liste-patient/patient/patient.modele';
+import { PatientService } from '../../services/patient.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';

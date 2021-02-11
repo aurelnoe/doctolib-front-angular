@@ -3,6 +3,29 @@ body {
   //background-color: rgb(214, 247, 253);
   background: linear-gradient(#b1edff, #61c5ff)!important;
   min-height: 100vh;
+  box-sizing: border-box;
+}
+
+header
+{
+  background-image: url("assets/images/stethoscope-2617701_1920.jpg");
+  background-size: cover;
+  height: auto;
+  min-height: 340px;
+  width: 100%;
+  position: relative;
+}
+
+.searchBar{
+  width: 100%;
+  box-sizing: border-box;
+  margin: 200px auto 30px;
+  position: absolute;
+}
+.searchBar form {
+  width: 40%;
+  margin: auto;
+  background-color: transparent;
 }
 
 .borderLightBlue{

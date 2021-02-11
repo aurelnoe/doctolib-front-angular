@@ -1,19 +1,24 @@
 import { baseUrl } from './../../environments/environment';
 import { Adresse } from './../liste-adresse/adresse/adresse.modele';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable  } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, map, retry } from 'rxjs/operators';
 import { Praticien } from '../liste-praticien/praticien/praticien.modele';
 
 @Injectable({providedIn: 'root'})
 
 export class PraticienService{
 
-  constructor(private http: HttpClient){}
+  headers: HttpHeaders;
+
+  constructor(private http: HttpClient){
+    const token = localStorage.getItem("token");
+    this.headers = new HttpHeaders().set("Authorization", "Bearer" + token);
+  }
 
   getPraticiensHttp(): Observable<Praticien> {
-    return this.http.get<Praticien>(`${baseUrl}praticiens`,{observe: 'body'})
+    return this.http.get<Praticien>(`${baseUrl}praticiens`,{observe: 'body'})//{headers: this.headers}
   }
 
   getDetailPraticien(id: number): Observable<Praticien> {
@@ -34,11 +39,21 @@ export class PraticienService{
       pays: null,
       codePostal: null,
     }
-    return this.http.post<Praticien[]>(url,praticien,{observe: 'response'})
+    return this.http.post<Praticien[]>(url,praticien,{observe: 'response'})//{headers: this.headers}
   }
 
   editPraticien(id: number, praticien: Praticien){
     let url = `${baseUrl}praticiens/`+id;
+    const adresse = +praticien.adresse;
+    praticien.adresse =
+    {
+      id: adresse,
+      denomination: null,
+      libelleVoie: null,
+      ville: null,
+      pays: null,
+      codePostal: null,
+    }
     return this.http.put<Praticien>(url,praticien,{observe: 'response'})
   }
 

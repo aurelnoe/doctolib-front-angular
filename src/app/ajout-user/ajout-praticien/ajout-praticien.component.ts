@@ -1,7 +1,7 @@
-import { Adresse } from '../liste-adresse/adresse/adresse.modele';
+import { Adresse } from '../../liste-adresse/adresse/adresse.modele';
 import { AdresseService } from 'src/app/services/adresse.service';
-import { Praticien } from './../liste-praticien/praticien/praticien.modele';
-import { PraticienService } from './../services/praticien.service';
+import { Praticien } from '../../liste-praticien/praticien/praticien.modele';
+import { PraticienService } from '../../services/praticien.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +17,8 @@ export class AjoutPraticienComponent implements OnInit {
   praticien: Praticien;
   listeCabinets = [];
 
-  constructor(private router: Router, private praticienService: PraticienService, private adresseService: AdresseService) { }
+  constructor(private router: Router, private praticienService: PraticienService, private adresseService: AdresseService) {
+  }
 
   ngOnInit() {
     this.adresseService.getAdressesHttp().subscribe((response) => {

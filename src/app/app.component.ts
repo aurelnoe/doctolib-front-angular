@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
@@ -11,12 +12,14 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMo
 export class AppComponent {
   title = 'doctoLib';
 
-  constructor(
-    private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
-
-  // logout() {
+  // onLogout() {
   //   this.authService.logout();
-  //   this.router.navigate(['/login']);
   // }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

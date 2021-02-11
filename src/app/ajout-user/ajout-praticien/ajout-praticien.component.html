@@ -1,9 +1,10 @@
 <div class="container w-50 m-auto">
-  <h1 class="text-center">Inscription Praticien</h1>
   <div class="col-12 my-4">
     <form (ngSubmit)="addPraticien(subscriptionForm.value)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
+      <h1 class="text-center my-5">Inscription Praticien</h1>
 
       <input type="hidden" name="dateInscription" value="2021-01-29">
+      <input type="hidden" name="role" value="praticien">
 
       Nom : <input type="text" id="nom" name="nom"
                   class="form-control" ngModel
@@ -39,16 +40,14 @@
                   class="form-control" ngModel
                   required #monAdresse>
       <p class="help-block texte-rouge" *ngIf="monAdresse.invalid && monAdresse.touched">L'adresse du cabinet doit être saisis !</p> -->
-      <div formArrayName="listeCabinets">
-        <h2>Nom du cabinet :</h2>
-          <select class="form-control"
-                  name="adresse"
-                  id="adresse" ngModel>
-            <option value=i *ngFor="let cabinet of listeCabinets, index as i"  >
-              {{ cabinet.denomination }}
-            </option>
-          </select>
-      </div>
+      <h2>Nom du cabinet :</h2>
+      <select class="form-control"
+              name="adresse"
+              id="adresse" ngModel>
+        <option value="{{ cabinet.id }}" *ngFor="let cabinet of listeCabinets, index as i"  >
+          {{ cabinet.denomination }}
+        </option>
+      </select>
 
       <div class="text-center my-5">
         <input type="submit" [disabled]="subscriptionForm.invalid" value="Valider" class="btn btn-primary">

@@ -5,14 +5,12 @@
       <h3>Patient : {{ leRendezVous.patient.nom }} {{ leRendezVous.patient.prenom }}</h3>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col-8">
-          <h3>Date : {{ leRendezVous.dateDebut | date }}</h3>
-          <h3>Heure : {{ leRendezVous.dateDebut | date:'shortTime' }}</h3>
-          <h3>Besoin : {{ leRendezVous.praticien.specialite }}</h3>
-          <h3>Motif de la consultation : {{ leRendezVous.motif }}</h3>
+        <div class="w-100">
+          <p>Date : <strong>{{ leRendezVous.dateDebut | date }}</strong></p>
+          <p>Heure : <strong>{{ leRendezVous.dateDebut | date:'shortTime' }}</strong></p>
+          <p>Besoin : <strong>{{ leRendezVous.praticien.specialite }}</strong></p>
+          <p>Motif de la consultation : <strong>{{ leRendezVous.motif }}</strong></p>
         </div>
-      </div>
     </div>
   </div>
 </div>

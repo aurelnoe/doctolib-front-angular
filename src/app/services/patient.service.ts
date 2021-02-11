@@ -1,7 +1,7 @@
 import { baseUrl } from './../../environments/environment';
 import { Patient } from './../liste-patient/patient/patient.modele';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,7 +9,12 @@ import { Injectable } from '@angular/core';
 })
 export class PatientService {
 
-  constructor(private http: HttpClient) { }
+  headers: HttpHeaders;
+
+  constructor(private http: HttpClient){
+    const token = localStorage.getItem("token");
+    this.headers = new HttpHeaders().set("Authorization", "Bearer" + token);
+  }
 
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(`${baseUrl}patients`,{observe: 'body'})

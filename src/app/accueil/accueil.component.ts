@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilComponent implements OnInit {
 
+  inputValue:string;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onKeyUp(event:Event) {
+    this.inputValue = (<HTMLInputElement>event.target).value;
   }
 
 }

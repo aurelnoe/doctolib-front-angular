@@ -59,7 +59,7 @@
           class="form-control"
           required #monAdresse="ngModel"
           [(ngModel)]="praticien.adresse">
-          <option *ngFor="let adresse of listeCabinets" [ngValue]="adresse">{{ adresse.denomination }}</option>
+          <option *ngFor="let adresse of listeCabinets" [ngValue]="praticien.adresse.id">{{ adresse.denomination }}</option>
         </select>
         <p class="help-block texte-rouge" *ngIf="monAdresse.invalid && monAdresse.touched">L'adresse du cabinet doit être saisis !</p>
       </div>

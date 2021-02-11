@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './services/auth.interceptor';
 import { ScheduleComponent } from './detail-praticien/ajout-rendez-vous/schedule.component';
 import { PraticienService } from './services/praticien.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,12 +18,14 @@ import { ListeAdresseComponent } from './liste-adresse/liste-adresse.component';
 import { ListeRendezVousComponent } from './liste-rendez-vous/liste-rendez-vous.component';
 import { DetailPraticienComponent } from './detail-praticien/detail-praticien.component';
 import { DetailPatientComponent } from './detail-patient/detail-patient.component';
-import { AjoutPatientComponent } from './ajout-patient/ajout-patient.component';
-import { AjoutPraticienComponent } from './ajout-praticien/ajout-praticien.component';
+import { AjoutPatientComponent } from './ajout-user/ajout-patient/ajout-patient.component';
+import { AjoutPraticienComponent } from './ajout-user/ajout-praticien/ajout-praticien.component';
 import { AjoutRendezVousComponent } from './detail-praticien/ajout-rendez-vous/ajout-rendez-vous.component';
 import { ModifPraticienComponent } from './modif-praticien/modif-praticien.component';
 import { RecurrenceEditorModule, ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+import { LoginComponent } from './login/login.component';
+import { ChoixUserComponent } from './ajout-user/choix-user/choix-user.component';
 
 
 @NgModule({
@@ -45,6 +48,8 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMo
     AjoutPatientComponent,
     ModifPraticienComponent,
     ScheduleComponent,
+    LoginComponent,
+    ChoixUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,14 +77,14 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMo
     MonthAgendaService,
     TimelineViewsService,
     TimelineMonthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
     // AuthGuard,
     // AuthService,
     // // RandomGuard,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true
-    // }
   ],
   bootstrap: [AppComponent]
 })

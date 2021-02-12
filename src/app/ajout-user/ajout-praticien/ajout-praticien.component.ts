@@ -1,6 +1,6 @@
-import { Adresse } from '../../liste-adresse/adresse/adresse.modele';
+import { Adresse } from '../../models/adresse.modele';
 import { AdresseService } from 'src/app/services/adresse.service';
-import { Praticien } from '../../liste-praticien/praticien/praticien.modele';
+import { Praticien } from '../../models/praticien.modele';
 import { PraticienService } from '../../services/praticien.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';

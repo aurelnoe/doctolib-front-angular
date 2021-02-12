@@ -1,4 +1,4 @@
-import { Praticien } from './../liste-praticien/praticien/praticien.modele';
+import { Praticien } from '../models/praticien.modele';
 import { AdresseService } from './../services/adresse.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -15,12 +15,7 @@ export class ModifPraticienComponent implements OnInit {
   praticien: Praticien;
   listeCabinets = [];
   listePraticiens;
-  nom = '';
-  prenom = '';
-  email = '';
-  telephone = '';
-  specialite = '';
-  adresseId: number;
+  userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
   constructor(private praticienService: PraticienService,
               private router: Router,
@@ -28,6 +23,11 @@ export class ModifPraticienComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
+    
     this.adresseService.getAdressesHttp().subscribe((response) => {
       this.listeCabinets = response;
     }, (error) => {
@@ -37,14 +37,6 @@ export class ModifPraticienComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.praticien = this.getDetailPraticien(+params['id']);
     })
-    //console.log(this.praticien);
-
-    // this.nom = this.praticien.nom;
-    // this.prenom = this.praticien.prenom;
-    // this.email = this.praticien.email;
-    // this.telephone = this.praticien.telephone;
-    // this.specialite = this.praticien.specialite;
-    // this.adresseId = this.praticien.adresse.id;
   }
 
   editPraticien(id: number, form: NgForm) {

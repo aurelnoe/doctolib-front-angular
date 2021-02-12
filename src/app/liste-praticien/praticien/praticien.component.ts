@@ -1,4 +1,4 @@
-import { Praticien } from './praticien.modele';
+import { Praticien } from '../../models/praticien.modele';
 import { PraticienService } from './../../services/praticien.service';
 import { Component, OnInit, Input } from '@angular/core';
 

@@ -1,6 +1,6 @@
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
 
 @Component({
@@ -9,10 +9,14 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMo
   styleUrls: ['./app.component.scss'],
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'doctoLib';
+  session = localStorage;
 
   constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit(): void {
+  }
 
   // onLogout() {
   //   this.authService.logout();

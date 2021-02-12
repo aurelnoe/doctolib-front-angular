@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdresseService } from '../services/adresse.service';
-import { Adresse } from './adresse/adresse.modele';
+import { Adresse } from '../models/adresse.modele';
 
 @Component({
   selector: 'app-liste-adresse',

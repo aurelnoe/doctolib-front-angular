@@ -7,7 +7,7 @@
           class="form-control" placeholder="adresse@mail.com"
           ngModel #monEmail="ngModel" required>
   </div>
-  <p class="help-block texte-rouge" *ngIf="monEmail.invalid && monEmail.touched">Le prénom doit être saisis !</p>
+  <p class="help-block texte-rouge" *ngIf="monEmail.invalid && monEmail.touched">L'adresse mail doit être saisis !</p>
   <hr class="hrLightBlue">
   <div class="form-group">
     <label for="password">Mot de passe :</label>
@@ -15,7 +15,7 @@
           class="form-control" placeholder="Mot de passe"
           ngModel #monMdp="ngModel" required>
   </div>
-  <p class="help-block texte-rouge" *ngIf="monMdp.invalid && monMdp.touched">Le prénom doit être saisis !</p>
+  <p class="help-block texte-rouge" *ngIf="monMdp.invalid && monMdp.touched">Le mot de passe doit être saisis !</p>
   <hr class="hrLightBlue">
   <div class="text-center">
     <button type="submit" value="login" class="w-50 btn btn-primary">Envoyer</button>

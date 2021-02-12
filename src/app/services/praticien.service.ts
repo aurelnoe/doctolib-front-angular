@@ -1,10 +1,10 @@
 import { baseUrl } from './../../environments/environment';
-import { Adresse } from './../liste-adresse/adresse/adresse.modele';
+import { Adresse } from '../models/adresse.modele';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable  } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
-import { Praticien } from '../liste-praticien/praticien/praticien.modele';
+import { Praticien } from '../models/praticien.modele';
 
 @Injectable({providedIn: 'root'})
 
@@ -23,6 +23,14 @@ export class PraticienService{
 
   getDetailPraticien(id: number): Observable<Praticien> {
     return this.http.get<Praticien>(`${baseUrl}praticiens/`+id)
+  }
+
+  findPraticienByVille(ville: string): Observable<Praticien> {
+    return this.http.get<Praticien>(`${baseUrl}praticiens?ville=`+ville,{observe: 'body'})//{headers: this.headers}
+  }
+
+  findPraticienByAdresse(idAdresse: number): Observable<Praticien> {
+    return this.http.get<Praticien>(`${baseUrl}praticiens?adresse=`+idAdresse,{observe: 'body'})//{headers: this.headers}
   }
 
   addPraticienHttp(praticien: Praticien){

@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/');
       },(error) => {
         console.log(form);
-        //! SET ALERT DANGER
         console.log(error);
       });
   }

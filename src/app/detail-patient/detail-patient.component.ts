@@ -1,7 +1,7 @@
-import { Patient } from './../liste-patient/patient/patient.modele';
+import { Patient } from '../models/patient.modele';
 import { PatientService } from './../services/patient.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-patient',
@@ -11,7 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class DetailPatientComponent implements OnInit {
   id: number;
   //patient;//: Object
-  patient: Patient;
+  @Input() patient: Patient;
   //@Input() patient;
   // patient: {
   //   id: number,
@@ -25,28 +25,32 @@ export class DetailPatientComponent implements OnInit {
   //   adresse: number,
   // }
 
-  constructor(private activatedRoute: ActivatedRoute,private patientService: PatientService)
+  constructor(private activatedRoute: ActivatedRoute,private patientService: PatientService, private router: Router)
   {
     // this.activatedRoute.params
     // .subscribe( params => this.id = +params['id'])
   }
 
   ngOnInit() {
+
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
     // const id = this.activatedRoute.snapshot.params['id'];
     // this.patient = {id: id}
     //this.getDetailPatient(this.id);
     this.activatedRoute.params.subscribe((params: Params) => {
       this.getDetailPatient(+params['id']);
     })
-    console.log(this.patient);
+    //console.log(this.patient);
   }
 
   getDetailPatient(id: number){
     this.patientService.getDetailPatient(id)
     .subscribe((response: Patient) => {
      this.patient = response;
-     console.log(typeof(this.patient));
-     console.log(response);
+     //console.log(typeof(this.patient));
+     //console.log(response);
     });
     return this.patient;
   }

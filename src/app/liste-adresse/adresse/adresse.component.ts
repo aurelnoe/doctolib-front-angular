@@ -1,4 +1,4 @@
-import { Adresse } from './adresse.modele';
+import { Adresse } from '../../models/adresse.modele';
 import { AdresseService } from 'src/app/services/adresse.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AdresseComponent implements OnInit {
 
-  @Input() Cabinet: Adresse;
+  @Input() cabinet: Adresse;
 
   constructor(private adresseService: AdresseService) { }
 

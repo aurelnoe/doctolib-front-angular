@@ -1,3 +1,4 @@
+import { DetailAdresseComponent } from './detail-adresse/detail-adresse.component';
 import { ChoixUserComponent } from './ajout-user/choix-user/choix-user.component';
 import { AuthGuard } from './login/guards/auth.guard';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'liste-rendez-vous', component: ListeRendezVousComponent},
   {path: 'detail-praticien/:id', component: DetailPraticienComponent},
   {path: 'detail-patient/:id', component: DetailPatientComponent},
+  {path: 'detail-adresse/:id', component: DetailAdresseComponent},
   {path: 'choix-user', component: ChoixUserComponent},
   {path: 'ajout-praticien', component: AjoutPraticienComponent},
   {path: 'ajout-patient', component: AjoutPatientComponent},

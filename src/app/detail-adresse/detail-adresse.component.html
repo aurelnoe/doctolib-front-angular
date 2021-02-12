@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="text-center my-4">Détail du cabinet</h1>
+  <div class="borderLightBlue backGroundWhite p-4 my-2">
+    <hr class="hrLightBlue">
+    <h2 class="text-center">{{ cabinet.denomination }}</h2>
+    <p>{{ cabinet.libelleVoie }}</p>
+    <p>{{ cabinet.codePostal }}, {{ cabinet.ville }}</p>
+    <p>{{ cabinet.pays }}</p>
+    <a href="#" routerLink="/liste-adresse" class="btn btn-primary">Retour à la liste des cabinets</a>
+  </div>
+  <h2 class="my-4 text-center">Liste des praticiens</h2>
+  <div class="row p-0 d-flex justify-content-around">
+      <app-praticien *ngFor="let praticien of listePraticiens" [lePraticien]="praticien">
+      </app-praticien>
+  </div>
+</div>

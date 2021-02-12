@@ -1,5 +1,5 @@
 import { baseUrl } from './../../environments/environment';
-import { Patient } from './../liste-patient/patient/patient.modele';
+import { Patient } from '../models/patient.modele';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';

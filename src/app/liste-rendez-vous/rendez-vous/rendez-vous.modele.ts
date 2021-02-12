@@ -1,5 +1,5 @@
-import { Patient } from './../../liste-patient/patient/patient.modele';
-import { Praticien } from './../../liste-praticien/praticien/praticien.modele';
+import { Patient } from '../../models/patient.modele';
+import { Praticien } from '../../models/praticien.modele';
 export interface RendezVous
 {
   id: number,

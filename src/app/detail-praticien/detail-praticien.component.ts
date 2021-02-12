@@ -1,4 +1,4 @@
-import { Praticien } from './../liste-praticien/praticien/praticien.modele';
+import { Praticien } from '../models/praticien.modele';
 import { PraticienService } from './../services/praticien.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./detail-praticien.component.scss']
 })
 export class DetailPraticienComponent implements OnInit {
-  
+
   id: number;
   praticien: Praticien;
 

@@ -24,11 +24,11 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="choix-user">Inscription</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li *ngIf="session.length == 0" class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="login">Connexion</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link disabled" (click)="logout()" tabindex="-1" aria-disabled="true">Déconnexion</a>
+        <li *ngIf="session.length != 0" class="nav-item" routerLinkActive="active">
+          <a class="nav-link" (click)="logout()">Déconnexion</a>
         </li>
       </ul>
     </div>
@@ -36,5 +36,13 @@
 </nav>
 
 <router-outlet></router-outlet>
+
+<footer class="position-bottom mt-5">
+  <div class="text-center pt-5">© 2021 Docto'Lib By
+    <a class="linkLinkedin" href="https://www.linkedin.com/in/aur%C3%A9lien-montaye-a1b69b185/">
+      <strong>Aurélien Montaye</strong>
+    </a>
+  </div>
+</footer>
 
 

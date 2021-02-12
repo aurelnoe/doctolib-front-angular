@@ -26,6 +26,7 @@ import { RecurrenceEditorModule, ScheduleModule } from '@syncfusion/ej2-angular-
 import { AgendaService, DayService, MonthAgendaService, MonthService, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
 import { LoginComponent } from './login/login.component';
 import { ChoixUserComponent } from './ajout-user/choix-user/choix-user.component';
+import { DetailAdresseComponent } from './detail-adresse/detail-adresse.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { ChoixUserComponent } from './ajout-user/choix-user/choix-user.component
     ScheduleComponent,
     LoginComponent,
     ChoixUserComponent,
+    DetailAdresseComponent,
   ],
   imports: [
     BrowserModule,

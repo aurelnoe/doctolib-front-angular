@@ -1,9 +1,9 @@
 import { ServerService } from './server.service';
-import { User } from './../login/user.modele';
+import { User } from '../models/user.modele';
 import { baseUrl } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 
@@ -73,7 +73,7 @@ export class AuthService {
   }
 
   public getUserInfo(email:string) {
-    return this.http.get(`${baseUrl}user/` + email, {observe : 'body'});
+    return this.http.get(`${baseUrl}user/`+email);
   }
 
   // public logout() {

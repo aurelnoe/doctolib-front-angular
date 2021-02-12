@@ -1,5 +1,5 @@
-import { Patient } from './../../liste-patient/patient/patient.modele';
-import { Praticien } from './../../liste-praticien/praticien/praticien.modele';
+import { Patient } from '../../models/patient.modele';
+import { Praticien } from '../../models/praticien.modele';
 import { NgForm } from '@angular/forms';
 import { PatientService } from '../../services/patient.service';
 import { PraticienService } from '../../services/praticien.service';

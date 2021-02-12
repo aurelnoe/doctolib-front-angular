@@ -1,4 +1,4 @@
-import { Adresse } from './../../liste-adresse/adresse/adresse.modele';
+import { Adresse } from './adresse.modele';
 export interface Praticien
 {
   id?: number,

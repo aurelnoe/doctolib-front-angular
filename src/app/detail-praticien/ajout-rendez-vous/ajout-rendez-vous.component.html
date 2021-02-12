@@ -1,4 +1,3 @@
-
 <div class="container w-100 m-auto">
   <div class="col-12 my-4">
     <form (ngSubmit)="addRendezVous(subscriptionForm.value)" #subscriptionForm="ngForm" class="form borderLightBlue p-4">
@@ -13,6 +12,7 @@
           <p>0{{ praticien.telephone }}</p>
         </div>
       </div>
+      
       <input type="hidden" name="praticien" value="{{ praticien.id }}" ngModel>
 
       <div class="row">

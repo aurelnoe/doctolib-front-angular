@@ -1,4 +1,4 @@
-import { Patient } from './patient.modele';
+import { Patient } from '../../models/patient.modele';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
